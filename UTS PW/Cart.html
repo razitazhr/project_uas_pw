@@ -54,9 +54,23 @@ function displayCart() {
                     <h2 class="text-2xl font-semibold min-h-[64px]">
                         ${product.name}
                     </h2>
-                    <p class="text-pink-500 font-bold text-2xl mt-4">
-                        ${product.price}
-                    </p>
+                    <div class="flex items-center gap-4 mt-4">
+                        <button
+                        type="button"
+                        onclick="decreaseQuantity(${index})"
+                        class="bg-pink-200 hover:bg-pink-300 w-8 h-8 rounded-full">
+                        -
+                        </button>
+                        <span class="font-semibold text-lg">
+                            ${product.quantity}
+                        </span>
+                        <button
+                        type="button"
+                        onclick="increaseQuantity(${index})"
+                        class="bg-pink-400 hover:bg-pink-500 text-white w-8 h-8 rounded-full">
+                            +
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="flex flex-col gap-3">
@@ -74,9 +88,24 @@ function displayCart() {
                     Remove
                 </button>
             </div>
-        </>
+        </div>
         `;
     });
+}
+function increaseQuantity(index){
+    cart[index].quantity += 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+function decreaseQuantity(index){
+    if(cart[index].quantity > 1){
+        cart[index].quantity -= 1;
+    }
+    else{
+        cart.splice(index, 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
 }
 function removeItem(index){
     cart.splice(index, 1);

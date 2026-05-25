@@ -71,12 +71,14 @@
 </div>
 <script>
 const wishlistBtn = document.getElementById("wishlist-btn");
-wishlistBtn.addEventListener("click", function(){
+wishlistBtn.addEventListener("click", 
+function(){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const product = {
         name: "Special Hampers",
         price: "Rp 400.000",
-        image: "http://i1-c.pinimg.com/1200x/13/5a/83/135a8332f4b7136fae146e603204c2f4.jpg"
+        image: "http://i1-c.pinimg.com/1200x/13/5a/83/135a8332f4b7136fae146e603204c2f4.jpg",
+        quantity: 1
     };
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));

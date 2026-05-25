@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloomify - Contact</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-pink-100">
+    <!-- NAVBAR -->
+    <div class="w-full bg-white shadow-sm">
+        <nav class="flex items-center justify-between px-10 py-5">
+            <!-- Logo -->
+            <div>
+                <h1 class="text-3xl font-bold text-pink-400">
+                    Bloomify
+                </h1>
+                <p class="text-xs text-gray-500">
+                    Bouquet &amp; Gift Shop
+                </p>
+            </div>
+            <!-- Menu -->
+            <ul class="hidden md:flex gap-8 font-medium text-gray-700">
+                <li>
+                    <a href="UTS PW.html"
+                    class="hover:text-pink-400">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="product.html"
+                    class="hover:text-pink-400">
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                    class="hover:text-pink-400">
+                        Categories
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                    class="hover:text-pink-400">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                    class="text-pink-400 border-b-2 border-pink-400 pb-1">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+            <!-- Right -->
+            <div class="flex items-center gap-4">
+                <button class="text-xl">
+                    🔍
+                </button>
+                <a href="Cart.html"
+                class="text-xl">
+                    🛒
+                </a>
+                <a href="login.html"
+                class="bg-pink-400 hover:bg-pink-500 text-white px-5 py-2 rounded-full transition">
+                    Login
+                </a>
+            </div>
+        </nav>
+    </div>
+    <!-- CONTACT SECTION -->
+    <section class="flex items-center justify-center min-h-screen px-5 py-10">
+        <div class="flex flex-row bg-white rounded-[35px] shadow-xl overflow-hidden max-w-5xl w-full">
+            <!-- LEFT IMAGE -->
+            <div class="basis-1/2 relative hidden md:block">
+                <img
+                    src="assets/lily.jpg"
+                    alt="Contact Image"
+                    class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white"></div>
+            </div>
+            <!-- RIGHT FORM -->
+            <div class="basis-1/2 px-12 py-10 flex flex-col justify-center">
+                <h2 class="text-4xl font-bold text-pink-400 mb-3 text-center">
+                    Contact Bloomify
+                </h2>
+                <p class="text-sm text-gray-500 text-center mb-8">
+                    Send your message to us 🌸
+                </p>
+                <form
+                    onsubmit="sendMessage(event)"
+                    class="flex flex-col gap-5 w-full">
+                    <!-- NAME -->
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Full Name"
+                        class="px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    <!-- EMAIL -->
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email Address"
+                        class="px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    <!-- MESSAGE -->
+                    <textarea
+                        id="message"
+                        placeholder="Write your message..."
+                        class="px-5 py-3 h-36 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-pink-400"></textarea>
+                    <!-- BUTTON -->
+                    <button
+                        type="submit"
+                        class="bg-pink-400 hover:bg-pink-500 text-white px-5 py-3 rounded-full transition">
+                        Send Message
+                    </button>
+                    <!-- SUCCESS -->
+                    <div
+                        id="successMsg"
+                        class="text-center font-medium">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT -->
+    <script>
+        function sendMessage(event){
+            event.preventDefault();
+            let name =
+            document.getElementById("name").value;
+            let email =
+            document.getElementById("email").value;
+            let message =
+            document.getElementById("message").value;
+            let successMsg =
+            document.getElementById("successMsg");
+            if(
+                name === "" ||
+                email === "" ||
+                message === ""
+            ){
+                successMsg.innerHTML =
+                "Please fill in all fields!";
+                successMsg.className =
+                "text-red-500 text-center font-medium";
+            }else{
+                successMsg.innerHTML =
+                "Message sent successfully 🌸";
+                successMsg.className =
+                "text-green-500 text-center font-medium";
+            }
+        }
+    </script>
+</body>
+</html>

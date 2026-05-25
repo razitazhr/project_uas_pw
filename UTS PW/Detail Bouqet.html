@@ -75,12 +75,14 @@
 </div>
 <script>
 const wishlistBtn = document.getElementById("wishlist-btn");
-wishlistBtn.addEventListener("click", function(){
+wishlistBtn.addEventListener("click", 
+function(){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const product = {
         name: "Sweet Pink Rose",
         price: "Rp 250.000",
-        image: "https://i.pinimg.com/736x/ae/29/31/ae29319f381957665720f324ef2a4052.jpg"
+        image: "https://i.pinimg.com/736x/ae/29/31/ae29319f381957665720f324ef2a4052.jpg",
+        quantity: 1
     };
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));

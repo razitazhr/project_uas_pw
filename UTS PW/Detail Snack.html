@@ -73,12 +73,14 @@
 </div>
 <script>
 const wishlistBtn = document.getElementById("wishlist-btn");
-wishlistBtn.addEventListener("click", function(){
+wishlistBtn.addEventListener("click",
+function(){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const product = {
         name: "Sweet Snack Bouquet",
         price: "Rp 230.000",
-        image: "https://i.pinimg.com/736x/ac/1e/2d/ac1e2d057a912b9d6e09c6f402abaf3c.jpg"
+        image: "https://i.pinimg.com/736x/ac/1e/2d/ac1e2d057a912b9d6e09c6f402abaf3c.jpg",
+        quantity: 1
     };
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
